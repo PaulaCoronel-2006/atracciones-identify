@@ -8,6 +8,7 @@ namespace Microservicios.Atracciones.Identify.API.Controllers.V1;
 
 [ApiController]
 [Route("api/v1/auth")]
+[AllowAnonymous]
 public class AuthController : ControllerBase
 {
     private readonly IAuthService _authService;

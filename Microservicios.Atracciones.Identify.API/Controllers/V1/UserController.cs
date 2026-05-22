@@ -7,7 +7,7 @@ namespace Microservicios.Atracciones.Identify.API.Controllers.V1;
 
 [ApiController]
 [Route("api/v1/user")]
-[Authorize(Roles = "Admin")]
+[AllowAnonymous]
 public class UserController : ControllerBase
 {
     private readonly IUserService _userService;

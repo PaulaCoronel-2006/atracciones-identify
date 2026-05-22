@@ -9,6 +9,7 @@ namespace Microservicios.Atracciones.Identify.API.Controllers.V1;
 
 [ApiController]
 [Route("api/v1/client")]
+[AllowAnonymous]
 public class ClientController : ControllerBase
 {
     private readonly IClienteService _clienteService;
