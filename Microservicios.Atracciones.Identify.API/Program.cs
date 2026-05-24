@@ -127,7 +127,7 @@ app.UseMiddleware<Microservicios.Atracciones.Identify.API.Middleware.ExceptionMi
 // Habilitar el servicio de archivos estáticos para la carpeta wwwroot (uploads locales)
 app.UseStaticFiles();
 
-app.UseHttpsRedirection();
+// UseHttpsRedirection omitido: servicio interno detrás de gateway nginx que maneja TLS
 app.UseCors("AllowAll");
 
 // Orden indispensable: Autenticación ANTES que Autorización
