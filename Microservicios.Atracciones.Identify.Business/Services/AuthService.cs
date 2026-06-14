@@ -232,14 +232,14 @@ public class AuthService : IAuthService
         }
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-            _configuration["Jwt:Key"] ?? "Microservicios.Atracciones.Identify_Super_Secret_Key_2026_Minimum_Length_Requirement_Long_String"));
+            (_configuration["Jwt:Key"] ?? "Microservicios.Atracciones.Identify_Super_Secret_Key_2026_Minimum_Length_Requirement_Long_String").Trim()));
 
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
         var expires = DateTime.UtcNow.AddMinutes(Convert.ToDouble(_configuration["Jwt:DurationMinutes"] ?? "30"));
 
         var token = new JwtSecurityToken(
-            issuer: _configuration["Jwt:Issuer"] ?? "Microservicios.Atracciones.Identify",
-            audience: _configuration["Jwt:Audience"] ?? "Microservicios.Atracciones.IdentifyUsers",
+            issuer: (_configuration["Jwt:Issuer"] ?? "Microservicios.Atracciones.Identify").Trim(),
+            audience: (_configuration["Jwt:Audience"] ?? "Microservicios.Atracciones.IdentifyUsers").Trim(),
             claims: claims,
             expires: expires,
             signingCredentials: creds

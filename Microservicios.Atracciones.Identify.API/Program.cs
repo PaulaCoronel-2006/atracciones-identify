@@ -85,9 +85,9 @@ builder.Services.AddCors(options =>
 // ======================================================
 // 3. JWT AUTHENTICATION
 // ======================================================
-var jwtKey = builder.Configuration["Jwt:Key"] ?? "Microservicios.Atracciones.Identify_Super_Secret_Key_2026_Minimum_Length_Requirement_Long_String"; // Cambiar esto en appsettings.json
-var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "Microservicios.Atracciones.Identify";
-var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "Microservicios.Atracciones.IdentifyUsers";
+var jwtKey = (builder.Configuration["Jwt:Key"] ?? "Microservicios.Atracciones.Identify_Super_Secret_Key_2026_Minimum_Length_Requirement_Long_String").Trim();
+var jwtIssuer = (builder.Configuration["Jwt:Issuer"] ?? "Microservicios.Atracciones.Identify").Trim();
+var jwtAudience = (builder.Configuration["Jwt:Audience"] ?? "Microservicios.Atracciones.IdentifyUsers").Trim();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
